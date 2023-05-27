@@ -8,7 +8,7 @@ let _ : int = ( * ) 42 10
 let _ : float = ( /. ) 3.14 2.0
 let _ = 4.2 ** 7.
 let rec exp x n = 
-    if n = 1 then x else x * exp x (n-1)
+  if n = 1 then x else x * exp x (n-1)
 
 (* equality *)
 let _ : bool = 42 = 42 
@@ -29,10 +29,10 @@ let double x = x * 2
 (* more fun *)
 let cube x = x *. x *. x
 let sign x = 
-    if x = 0 then 0
-    else
-        if x > 1 then 1
-        else -1
+  if x = 0 then 0
+  else
+  if x > 1 then 1
+  else -1
 let area radius = Float.pi *. radius ** 2.
 let ( =. ) a b = Float.abs (a -. b) < 1e-5
 let _ = assert (Float.pi =. area 1.)
@@ -42,29 +42,29 @@ let root x y = (((x ** 2.) +. (y ** 2.)) /. 2.) ** (1. /. 2.)
 
 (* data fun *)
 let checkData d m = 
-    if m = "Fev" then d >= 1 && d <= 28
-    else
-        if m = "Jan" || m = "Mar" || m = "May" || m = "Jul" || m = "Sep" || m = "Nov" 
-            then d >= 0 && d <= 31
-        else if m = "Fev" || m = "Apr" || m = "Jun" || m = "Ago" || m = "Out" || m = "Dec"
-            then d >= 0 && d <= 31
-        else false
+  if m = "Fev" then d >= 1 && d <= 28
+  else
+  if m = "Jan" || m = "Mar" || m = "May" || m = "Jul" || m = "Sep" || m = "Nov" 
+  then d >= 0 && d <= 31
+  else if m = "Fev" || m = "Apr" || m = "Jun" || m = "Ago" || m = "Out" || m = "Dec"
+  then d >= 0 && d <= 31
+  else false
 
 (* fib  *)
 let rec fib n = 
-    if n = 0 then 0
-    else if n <= 2 then 1
-    else fib (n - 1) + fib (n - 2)
+  if n = 0 then 0
+  else if n <= 2 then 1
+  else fib (n - 1) + fib (n - 2)
 
 (* fib fast 
    A Overflow happens at fib_fast 110 *)
 let rec helper n pp p = 
-    if n = 1 then p
-    else helper (n - 1) p (pp + p)
+  if n = 1 then p
+  else helper (n - 1) p (pp + p)
 let fib2 n = helper n 0 1
 let fib_fast n =
-    if n = 0 then 0
-    else fib2 n
+  if n = 0 then 0
+  else fib2 n
 let f x = if x then x else x (* bool -> bool *)
 let g x y = if y then x else x (* 'a -> bool -> 'a *)
 let h x y z = if x then y else z (* bool -> 'a -> 'a -> 'a *)
@@ -90,5 +90,3 @@ let ( +/. ) x y = (x +. y) /. 2.
 let _ = assert (1. +/. 2. = 1.5)
 
 
-(* hello world *)
-(* print_string "Hello World";; *)

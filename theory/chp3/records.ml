@@ -19,3 +19,19 @@ let char = {name = "Charmander"; ptype = Fire; hp = 30}
 let to_string poke =
   match poke with
   | {name; hp} -> name ^ " " ^ string_of_int hp
+
+
+(* ----------------------------------  *)
+
+type member = {
+  name  : string;
+  surname : string;
+}
+
+let m = {name = "Momo"; surname = "Hirai"}
+
+let print_name member = 
+  match member with
+  | {name; } -> "The name is " ^ name
+
+let print_name' member = "The name is " ^ member.name
