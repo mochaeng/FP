@@ -7,5 +7,5 @@ let rec sum_helper acc = function
   | [] -> acc
   | h :: t -> sum_helper (acc + h) t
 
-let sum_tr lst = sum_helper 0 lst 
+let sum_tr lst = sum_helper 0 lst
 

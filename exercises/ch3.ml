@@ -5,9 +5,12 @@ let _ = [1] @ [2; 3; 4] @ [5]
 
 
 (* product *)
-let rec prod = function
-    | [] -> 1
-    | h :: t -> h * prod t
+let prod lst = 
+    let rec aux acc lst = 
+        match lst with 
+        | [] -> acc
+        | h :: t -> aux (acc * h) t
+    in aux 1 lst
 
 
 (* concat *)
@@ -31,7 +34,7 @@ let has_two_or_four = function
     | _ -> false
 
 let two_are_equal = function
-    | f :: s :: _ -> f = s
+    | first :: second :: _ -> first = second
     | _ -> false  (* empty or 1 element *)
 
 
@@ -112,7 +115,6 @@ type student = {
     gpa : float
 }
 
-
 let momo = {first_name="Momo"; last_name = "Hira"; gpa=20.1}
 let get_name std = (std.first_name, std.last_name)
 let create_student first_name last_name gpa = 
@@ -181,7 +183,6 @@ let quadrant_when : int*int -> quad option = function
     | a, b when a > 0 && b < 0 -> Some IV
     | _ -> None
 
-
 let rec max_safe lst =
     match lst with 
     | [] -> None
@@ -195,3 +196,10 @@ let max_exn lst =
     match lst with
     | [] -> failwith "Empty"
     | _ -> max_safe lst
+
+
+(* depth *)
+type 'a tree =
+    | Leaf 
+    | Node of 'a * 'a tree * 'a tree
+
